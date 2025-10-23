@@ -1,0 +1,381 @@
+/* Reset și fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #2E2E2E;
+  background-color: #F5F3EF;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Header */
+/* Navbar general */
+.site-header {
+  background-color: #d2c9c952;
+  height: 100px;            /* bara compactă */
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.header-inner {
+  width: 100%;
+  max-width: 1200px; /* centrare conținut */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* logo stânga, meniu dreapta */
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+/* Logo */
+.logo img {
+  height: 80px; /* ajustabil */
+  width: auto;
+  display: block;
+}
+
+/* Meniu desktop */
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #121212;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #DDD;
+}
+
+/* Buton hamburger (mobil) */
+#nav-toggle {
+  display: none;  /* ascuns pe desktop */
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  #nav-toggle {
+    display: block; /* vizibil pe mobil */
+  }
+
+  .nav {
+    position: absolute;
+    top: 80px;       /* sub navbar */
+    left: 0;
+    width: 100%;
+    background-color: #2F2F2F;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .nav.open {
+    max-height: 500px; /* suficient pentru toate link-urile */
+  }
+}
+
+
+
+/* Hero */
+.hero { text-align: center; padding: 6rem 2rem; background-color: #ECE8E2; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+.btn {
+  text-decoration: none;
+  background-color: #6B705C;
+  color: #F5F3EF;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+.hero {
+  background-image: url("images/9.jpg"); /* ← imaginea ta */
+  background-size: cover;      /* imaginea acoperă toată secțiunea */
+  background-position: center; /* centrare perfectă */
+  background-repeat: no-repeat; /* nu se repetă */
+  color: white;                /* text alb peste imagine */
+  text-align: center;          /* centrare text */
+  padding: 8rem 2rem;          /* spațiu interior mare */
+  position: relative;          /* pentru eventuale efecte */
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* negru transparent */
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2; /* textul deasupra stratului */
+}
+
+.btn:hover { background-color: #A5A58D; }
+
+/* About */
+.about h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; }
+.about p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; }
+
+.projects {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.projects h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Galeria — doar 2 carduri mari pe rând */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 🔹 două coloane fixe */
+  gap: 1.5rem; /* spațiu între carduri */
+  max-width: 1200px; /* centrăm conținutul */
+  margin: 0 auto;
+}
+
+/* Cardurile (doar imagini) */
+.card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 600px; /* 🔹 înălțime mai mare, arată profesional */
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Efect hover */
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Responsiv pentru mobil */
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: 1fr; /* 🔹 pe ecrane mici → un singur card pe rând */
+  }
+
+  .card img {
+    height: 320px; /* puțin mai mic pe mobil */
+  }
+}
+
+/* Contact */
+.contact-content {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+form#contact-form {
+  flex: 1 1 300px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-row label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background-color: #2F2F2F;
+  color: #F5F5F5;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+.contact-info {
+  flex: 1 1 200px;
+  max-width: 300px;
+  background-color: #2F2F2F;
+  color: #F5F5F5;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.contact-info p {
+  margin: 0.8rem 0;
+  font-size: 1rem;
+}
+
+.contact-info a {
+  color: #F5F5F5;
+  text-decoration: underline;
+}
+
+.contact-info a:hover {
+  color: #DDD;
+}
+
+/* Responsive pentru mobil */
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-info,
+  form#contact-form {
+    max-width: 100%;
+  }
+}
+
+
+/* Footer */
+.site-footer { text-align: center; padding: 2rem 0; background-color: #ECE8E2; border-top: 1px solid #DAD7CD; font-size: 0.9rem; color: #2E2E2E; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav ul { flex-direction: column; gap: 1rem; }
+}
+/* Modal (pop-up) */
+.modal {
+  display: none; /* ascuns inițial */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background-color: #F5F3EF;
+  margin: 5% auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 700px;
+  text-align: center;
+}
+
+.modal-content img {
+  max-width: 100%;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+}
+
+.close {
+  color: #2E2E2E;
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #6B705C;
+}
+.project-images img {
+  width: 80%;  /* 80% din container */
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem; /* centrare + spațiu jos */
+}
+.project-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.project-images img {
+  width: calc(50% - 0.5rem); /* două imagini pe linie */
+  height: auto;
+  border-radius: 0.5rem;
+  max-width: 600px;
+}
+.project-images img.highlight {
+  width: 100%;       /* ocupă întreaga lățime a containerului */
+  max-width: 1200px;  /* sau cât vrei să fie maxim */
+  margin: 0 auto 1rem; /* centrare + spațiu jos */
+}
+p {
+  margin-bottom: 20px; /* spațiu de 20px între paragrafe */
+}
+h2, h3 {
+  margin-bottom: 20px; /* spațiu de 20px sub titluri */
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Titlu și descriere SEO -->
+  <title>Ștefancu Giorgiana – Artist vizual | Structuri vegetale și lumina umbrei</title>
+  <meta name="description" content="Ștefancu Giorgiana, artist vizual. Lucrări despre structuri vegetale în descompunere, lumina și umbra naturii, transformarea organică." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+  <div class="header-inner">
+    <!-- Logo -->
+    <a class="logo" href="#">
+      <img src="images/logo.png" alt="Ștefancu Giorgiana">
+    </a>
+
+    <!-- Buton hamburger pentru mobil -->
+    <button id="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
+
+    <!-- Meniu de navigație -->
+    <nav id="nav-menu" class="nav" role="navigation">
+      <ul>
+        <li><a href="#home">Acasă</a></li>
+        <li><a href="#about">Despre</a></li>
+        <li><a href="#projects">Proiecte</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <!-- Main -->
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="container">
+        <h1>Bine ai venit!</h1>
+        <p>Explorează creațiile mele și descoperă lumea prin ochii mei.</p>
+        <a class="btn" href="#projects">Vezi proiectele</a>
+      </div>
+    </section>
+
+    <!-- Despre mine -->
+    <section id="about" class="container about">
+      <h2>Despre mine</h2>
+      <p>Sunt o artistă vizuală care se inspiră din formele și texturile lumii vegetale. Lucrările mele explorează dinamica degradării organice. Structuri vegetale, în stadii de transformare, devin martori ai timpului și ai ciclicității vieții.</p>
+    </section>
+
+    <!-- Proiecte -->
+    <section id="projects" class="container projects">
+  <h2>Proiecte</h2>
+  <div class="gallery">
+
+    <a href="proiect1.html" class="card">
+      <img src="images/1.jpg" alt="Lucrare 1">
+    </a>
+
+    <a href="proiect2.html" class="card">
+      <img src="images/4.jpg" alt="Lucrare 2">
+    </a>
+
+    <a href="proiect3.html" class="card">
+      <img src="images/18.jpg" alt="Lucrare 3">
+    </a>
+
+    <a href="proiect4.html" class="card">
+      <img src="images/21.jpg" alt="Lucrare 4">
+    </a>
+
+  </div>
+</section>
+
+
+
+    <!-- Contact -->
+    <<section id="contact" class="container contact">
+  <h2>Contact</h2>
+  <p>Dacă dorești să colaborezi sau ai întrebări, nu ezita să mă contactezi:</p>
+
+  <div class="contact-content">
+    <!-- Formularul de contact -->
+    <form id="contact-form" action="mailto:stefancu.giorgiana@gmail.com" method="post" enctype="text/plain">
+      <div class="form-row">
+        <label for="name">Nume</label>
+        <input id="name" name="name" type="text" required />
+      </div>
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required />
+      </div>
+      <div class="form-row">
+        <label for="message">Mesaj</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn">Trimite</button>
+    </form>
+
+    <!-- Info de contact (DOAR AICI) -->
+    <div class="contact-info">
+      <p><strong>Email:</strong> 
+        <a href="mailto:stefancu.giorgiana@gmail.com">stefancu.giorgiana@gmail.com</a></p>
+      <p><strong>Instagram:</strong> 
+        <a href="https://www.instagram.com/s.giorgiart/" target="_blank">@s.giorgiart</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Ștefancu Giorgiana — Toate drepturile rezervate</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
+  <script>
+    // Actualizează automat anul în footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
